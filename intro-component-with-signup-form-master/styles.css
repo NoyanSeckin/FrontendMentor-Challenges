@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: border-box;
+  background-image: url("images/bg-intro-desktop.png");
+  background-color: hsl(0, 100%, 74%);
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+input {
+  height: 2.5rem;
+  padding-left: 1rem;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input::placeholder {
+  color: hsl(249, 10%, 26%);
+}
+
+.inputs {
+  background-color: hsl(248, 32%, 49%);
+  border-radius: 7px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 1rem auto;
+}
+
+.g-blue {
+  color: hsl(246, 25%, 77%);
+}
+
+.click-btn {
+  background-color: hsl(154, 59%, 51%);
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 0.7rem;
+  color: #fff;
+  width: 100%;
+}
+
+.click-btn:hover {
+  background-color: hsl(154, 53%, 44%);
+}
+
+.input-els-wrapper {
+  width: 95%;
+}
+
+.input-container {
+  background-color: white;
+  width: 100%;
+  padding: 2rem 2rem;
+  padding-bottom: 1rem;
+  border-radius: 15px;
+}
+
+.input-container p span {
+  color: red;
+}
+
+.terms-p {
+  font-size: 10px;
+  text-align: center;
+  margin-top: 0.3rem;
+  color: hsl(246, 25%, 77%);
+}
+
+.d-none {
+  display: none;
+}
+
+.input-div1 {
+  position: relative;
+  display: block;
+}
+
+.error-img-first,
+.error-img-last,
+.error-img-password,
+.error-img-email {
+  position: absolute;
+  margin-top: 10px;
+  margin-left: -40px;
+}
+
+.error-p-first,
+.error-p-last,
+.error-p-email,
+.error-p-password {
+  margin-top: 2px;
+  color: red;
+  text-align: end;
+  font-size: 12px;
+}
+
+.ex-mark {
+  position: absolute;
+  right: 290px;
+  top: 167px;
+  background-color: red;
+  color: white;
+  padding: 0.1rem 0.5rem;
+  border-radius: 50px;
+}
+@media screen and (max-width: 400px) {
+  #start-text p {
+    font-size: 14px;
+  }
+}
