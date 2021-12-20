@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | [Challenge Name Here]</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      #app {
+        font-family: "Montserrat", sans-serif;
+        background-image: url("../images/bg-top.svg"),
+          url("../images/bg-bottom.svg");
+        background-color: #f6f6fe;
+        background-repeat: no-repeat, no-repeat;
+        background-position-x: right, left;
+        background-position-y: 0%, 100%;
+      }
+
+      .v-card.Professional {
+        padding: 2.3rem 1rem !important;
+
+        background: linear-gradient(
+          0deg,
+          hsl(237, 63%, 64%),
+          hsl(236, 72%, 79%)
+        );
+        color: white !important;
+      }
+      .v-card.Basic {
+        padding: 1rem 0;
+      }
+      .v-card.Master {
+        padding: 1rem 0;
+      }
+      .v-btn.Basic {
+        background: linear-gradient(
+          0.25turn,
+          hsl(236, 72%, 79%),
+          hsl(237, 63%, 64%)
+        );
+      }
+
+      .v-btn.Master {
+        background: linear-gradient(
+          0.25turn,
+          hsl(236, 72%, 79%),
+          hsl(237, 63%, 64%)
+        );
+      }
+      .v-btn.Professional {
+        color: hsl(237, 63%, 64%);
+        font-weight: 700;
+      }
+      .v-btn.Basic {
+        color: white;
+      }
+      .v-btn.Master {
+        color: white;
+      }
+
+      .theme--light.v-card > .v-card__text.Professional {
+        color: white;
+      }
+      .theme--light.v-card > .v-card__text {
+        color: hsl(232, 13%, 33%);
+        font-weight: 700;
+      }
+
+      .v-card__subtitle {
+        font-size: 1rem;
+        font-weight: 700 !important;
+      }
+      .v-card__subtitle.Professional {
+        color: white !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <v-app>
+        <v-main>
+          <v-container>
+            <div class="mb-3">
+              <h1 class="text-center">Our Pricing</h1>
+              <div class="d-flex justify-center mt-2">
+                <span class="align-self-center">Annually</span>
+                <v-switch class="mx-4" v-model="switch1" inset></v-switch>
+                <span class="align-self-center">Monthly</span>
+              </div>
+            </div>
+            <v-row
+              no-gutters
+              class="
+                d-flex
+                align-lg-center
+                flex-lg-row flex-md-row flex-sm-row flex-column
+              "
+            >
+              <v-spacer class="flex-grow-0 flex-md-grow-1"></v-spacer>
+              <v-col
+                class="my-5 my-md-0"
+                :class="`${data.subtitle}`"
+                xs="9"
+                lg="3"
+                v-for="data in priceData"
+                :key="data.subtitle"
+              >
+                <v-card
+                  elevation="0"
+                  class="text-center px-5 mx-0"
+                  :class="`${data.subtitle}`"
+                >
+                  <v-card-subtitle :class="`${data.subtitle}`">
+                    {{data.subtitle}}
+                  </v-card-subtitle>
+                  <v-card-title
+                    class="px-2 justify-center display-3 font-weight-black"
+                  >
+                    {{switch1 ? data.monthly : data.yearly}}
+                  </v-card-title>
+                  <v-divider></v-divider>
+                  <v-card-text :class="`${data.subtitle}`">
+                    {{data.storage}}
+                  </v-card-text>
+                  <v-divider></v-divider>
+                  <v-card-text :class="`${data.subtitle}`">
+                    {{data.userCount}}
+                  </v-card-text>
+                  <v-divider></v-divider>
+                  <v-card-text :class="`${data.subtitle}`">
+                    {{data.limit}}
+                  </v-card-text>
+                  <v-divider></v-divider>
+                  <v-card-actions>
+                    <v-btn depressed block :class="`${data.subtitle}`"
+                      >Learn More</v-btn
+                    >
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+              <v-spacer class="flex-grow-0 flex-md-grow-1"></v-spacer>
+            </v-row>
+          </v-container>
+        </v-main>
+      </v-app>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://www.linkedin.com/in/egemen-noyan-se%C3%A7kin-7a4933158/"
+        >Egemen Noyan Seçkin</a
+      >.
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        vuetify: new Vuetify(),
+        data: {
+          switch1: false,
+          annual: true,
+          priceData: [
+            {
+              subtitle: "Basic",
+              storage: "500 GB Storage",
+              userCount: "2 Users Allowed",
+              limit: "Send up to 3 GB",
+              monthly: "$19.99",
+              yearly: "$199.99",
+            },
+            {
+              subtitle: "Professional",
+              storage: "1 TB Storage",
+              userCount: "5 Users Allowed",
+              limit: "Send up to 10 GB",
+              monthly: "$24.99",
+              yearly: "$249.99",
+            },
+            {
+              subtitle: "Master",
+              storage: "2 TB Storage",
+              userCount: "10 Users Allowed",
+              limit: "Send up to 20 GB",
+              monthly: "$39.99",
+              yearly: "$399.99",
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
